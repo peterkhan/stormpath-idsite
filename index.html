@@ -22,19 +22,14 @@
         <div class="box row">
           <div class="email-password-area  col-xs-12" ng-class="[hasProviders ? 'small col-sm-8' : 'large col-sm-12']">
             <div class="header">
-              <span>Log In</span>
-              <span ng-show="canRegister" wd-can-register>
-                <span> or </span>
-                <a href="#register">Create a Survey Account</a>
-              </span>
+              <span>{App Name} Log In</span>
 
             </div>
             <div class="alert alert-danger bad-login" ng-show="errors.badLogin">
               Invalid username or password.
             </div>
             <div class="alert alert-danger not-found" ng-show="errors.notFound">
-              <span>Account does not exist. Do you need to </span>
-              <a href="#/register">create an account</a>
+              <span>Account does not exist. Please contact admin to create an account</a>
               <span>?</span>
             </div>
             <div class="alert alert-danger" ng-show="errors.unknown">An unkown error has occurred</div>
@@ -77,6 +72,16 @@
                   <label for="remember">Remember me</label>
                 </div>
               </div>
+              
+              <div class="form-group group-password" form-group>
+                <label class="col-sm-4">Password</label>
+                <div class="col-sm-8">
+                  <input type="password" class="form-control" name="password2" form-control password-policy-validation validate-on-blur/>
+                  <div ng-include="'views/password-error-messages.html'"></div>
+                </div>
+              </div>
+              
+              
               <div>
                 <button class="login btn btn-login btn-sp-green" type="submit" ng-disabled="submitting">Log In</button>
               </div>
@@ -92,9 +97,6 @@
         </div>
 
         <a class="forgot" href="#forgot">Forgot Password?</a>
-
-      <br>
-      <div> This text confirms that this is a custom page</div>
 
       </div>
 
@@ -249,7 +251,7 @@
 
             <form class="reset-form form-horizontal sp-form" role="form" ng-show="status=='verified'" ng-submit="submit()">
               <div class="form-group group-password" form-group>
-                <label class="col-sm-4">New dffd Password</label>
+                <label class="col-sm-4">New Password</label>
                 <div class="col-sm-8">
                   <input type="password" class="form-control" name="password" form-control password-policy-validation validate-on-blur/>
                   <div ng-include="'views/password-error-messages.html'"></div>
@@ -257,7 +259,7 @@
               </div>
 
               <div class="form-group group-confirm-password" form-group>
-                <label class="col-sm-4">Confirm dfdf Password</label>
+                <label class="col-sm-4">Confirm Password</label>
                 <div class="col-sm-8">
                   <input type="password" class="form-control" name="passwordConfirm" form-control password-match-validation validate-on-blur/>
                   <small wd-pw-mismatch class="help-block" ng-show="validationError">Password does not match</small>
